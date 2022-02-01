@@ -35,27 +35,27 @@
 ## 함수 기능별 흐름도
 ![main](https://user-images.githubusercontent.com/69866091/152007369-565eff88-a5f1-4235-8c7f-08be58de03e8.png)
 
-- ssu_daemon() <br/>
+- int ssu_daemon(void); <br/>
 데몬 프로세스를 생성하여 파일의 삭제, 생성, 수정을 모니터링하며 log를 남기는 함수
 
 ![ssu_daemon](https://user-images.githubusercontent.com/69866091/152003543-1dae7f51-251a-48a3-948c-eecdb4f38523.png)
 
-- cmd_delete(char *filename, char endtime[ ], char buf[ ]) <br/>
+- void cmd_delete(char *filename, char endtime[ ], char buf[ ]); <br/>
 프롬프트에서 입력받은 파일이 지정한 디렉토리에 존재하는지 확인한 후, endtime을 입력 받았는지의 유무에 따라 trash 디렉토리를 생성하고, 삭제 동작을 수행하는 함수
 
 ![cmd_delete](https://user-images.githubusercontent.com/69866091/152003550-34ae1976-6bcf-459c-a1a2-717c76275f87.png)
 
-- calculate_infofile_size() <br/>
+- void calculate_infofile_size(void); <br/>
 info 파일의 크기를 계산하는 함수
 
 ![calculate](https://user-images.githubusercontent.com/69866091/152005981-58bb192c-8164-42df-81ce-d90c1d7a08ff.png)
 
-- delete_oldfile(off_t infofile_size) <br/>
+- void delete_oldfile(off_t infofile_size); <br/>
 info 파일에 저장된 삭제 시간을 기준으로 파일을 비교하여 삭제 시간이 가장 오래된 파일을 찾고, 해당 파일을 삭제하는 함수
 
 ![delete_oldfile](https://user-images.githubusercontent.com/69866091/152006085-8ae3c8cf-362e-4081-bf3f-548994d3e8f9.png)
 
-- cmd_recover(char *filename, char buf[ ]) <br/>
+- void cmd_recover(char *filename, char buf[ ]); <br/>
 프롬프트에서 입력받은 파일이 trash 디렉토리에 존재하는지 확인 후, 파일을 원래 경로로 복구하고 info 파일을 삭제하는 함수
 
 ![recover](https://user-images.githubusercontent.com/69866091/152006231-aaa307a0-ac09-4709-b7e3-df02100d679b.png)
